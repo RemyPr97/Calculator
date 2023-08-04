@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Simple Calculator</h1>
+
+    <%= form_tag("/calculatrice/calculate", method: "get") do %>
+      <label for="number1">Number 1:</label>
+      <%= text_field_tag(:number1) %>
+
+      <label for="operation">Operation:</label>
+      <%= select_tag(:operation, options_for_select([['+', '+'], ['-', '-'], ['*', '*'], ['/', '/']])) %>
+
+      <label for="number2">Number 2:</label>
+      <%= text_field_tag(:number2) %>
+
+      <%= submit_tag("Calculate") %>
+    <% end %>
+
+    <% if @result %>
+      <h2>Result: <%= @result %></h2>
+    <% end %>
+
+  </body>
+</html>
